@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Disco</title>
+</head>
+<body>
+    <h1>Detalhes do Disco</h1>
+    <h2>{{ disco.nome }}</h2>
+    <p>Descrição: {{ disco.descricao }}</p>
+    <p>Ano: {{ disco.ano }}</p>
+    <p>País: {{ disco.pais }}</p>
+    <p>Gênero: {{ disco.get_genero_display }}</p>
+    <p>Quantidade: {{ disco.quantidade }}</p>
+    <h3>Artistas:</h3>
+    <ul>
+        {% for artista in disco.artistas.all %}
+            <li>{{ artista.nome }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'lista_discos' %}">Voltar para a lista de discos</a>
+</body>
+</html>
