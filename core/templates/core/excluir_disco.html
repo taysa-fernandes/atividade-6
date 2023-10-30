@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excluir Disco</title>
+</head>
+<body>
+    <h1>Excluir Disco</h1>
+    <p>Você está prestes a excluir o seguinte disco:</p>
+    <p><strong>Título:</strong> {{ disco.nome }}</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        <p>Tem certeza de que deseja excluir este disco?</p>
+        <button type="submit">Confirmar Exclusão</button>
+    </form>
+
+    <a href="{% url 'lista_discos' %}">Cancelar</a>
+</body>
+</html>

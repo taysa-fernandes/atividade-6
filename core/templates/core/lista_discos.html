@@ -7,10 +7,30 @@
 </head>
 <body>
     <h1>Lista de Discos</h1>
-    <ul>
-        {% for disco in discos %}
-            <li><a href="{% url 'detalhes_disco' disco.id %}">{{ disco.nome }}</a></li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do Disco</th>
+                <th>Artista</th>
+                <th>Ano de Lançamento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disco in discos %}
+                <tr>
+                    <td>{{ disco.nome }}</td>
+                    <td>{{ disco.artista }}</td>
+                    <td>{{ disco.ano_lancamento }}</td>
+                    <td>
+                        <a href="{% url 'detalhes_disco' disco.id %}">Visualizar</a> |
+                        <a href="{% url 'editar_disco' disco.id %}">Editar</a> |
+                        <a href="{% url 'excluir_disco' disco.id %}">Excluir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'cadastro_disco' %}">Cadastrar Novo Disco</a>
 </body>
 </html>
